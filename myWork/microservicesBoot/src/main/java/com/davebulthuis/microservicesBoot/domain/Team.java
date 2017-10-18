@@ -1,12 +1,20 @@
 package com.davebulthuis.microservicesBoot.domain;
 
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Set;
 
+@XmlRootElement
+@Entity
 public class Team {
+    @Id @GeneratedValue
+    Long id;
+
     private String name;
     private String location;
     private String mascot;
+    @OneToMany(cascade= CascadeType.ALL)
+    @JoinColumn(name="teamId")
     private Set<Player> players;
 
     public Team() {
