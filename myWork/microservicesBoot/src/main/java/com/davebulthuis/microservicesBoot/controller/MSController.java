@@ -22,7 +22,7 @@ public class MSController {
     @Autowired
     TeamDao teamDao;
 
-    @RequestMapping("/teams/{name}")
+    @RequestMapping("/temp/{name}")
     public Team returnTeam(@PathVariable String name){
         return teamDao.findByName(name);
     }
